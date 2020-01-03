@@ -25,7 +25,7 @@ const colors = {
     }
 };
 
-function generateHTML(data) {
+function generateHTML(res, stars) {
     return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -34,6 +34,7 @@ function generateHTML(data) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <title>Document</title>
       <style>
           @page {
@@ -52,7 +53,7 @@ function generateHTML(data) {
          height: 100%;
          }
          .wrapper {
-         background-color: ${colors[data.color].wrapperBackground};
+         background-color: ${colors[res.data.color].wrapperBackground};
          padding-top: 100px;
          }
          body {
@@ -94,8 +95,8 @@ function generateHTML(data) {
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
-         background-color: ${colors[data.color].headerBackground};
-         color: ${colors[data.color].headerColor};
+         background-color: ${colors[res.data.color].headerBackground};
+         color: ${colors[res.data.color].headerColor};
          padding: 10px;
          width: 95%;
          border-radius: 6px;
@@ -106,7 +107,7 @@ function generateHTML(data) {
          border-radius: 50%;
          object-fit: cover;
          margin-top: -75px;
-         border: 6px solid ${colors[data.color].photoBorderColor};
+         border: 6px solid ${colors[res.data.color].photoBorderColor};
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
          .photo-header h1, .photo-header h2 {
@@ -149,10 +150,13 @@ function generateHTML(data) {
          .card {
            padding: 20px;
            border-radius: 6px;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
+           background-color: ${colors[res.data.color].headerBackground};
+           color: ${colors[res.data.color].headerColor};
            margin: 20px;
+           width: 40%;
          }
+
+    
          
          .col {
          flex: 1;
@@ -170,7 +174,57 @@ function generateHTML(data) {
             zoom: .75; 
           } 
          }
-      </style>`
+      </style>
+      
+      <body>
+      <div class="wrapper">
+  
+          <div class="photo-header">
+              <img class="" src="${res.data.avatar_url}">
+              <h1>Hi!</h1>
+              <h1>My name is ${res.data.name}</h1>
+              <h4>Currently @ ${res.data.company}</h4>
+              <div class="links-nav">
+                  <h6 class="nav-link"><i class="fas fa-map-marker-alt"></i> ${res.data.location}</h6>
+                  <a class="nav-link" href="${res.data.html_url}"><i
+                          class="fab fa-github"></i> GitHub</a>
+                  <a class="nav-link" href="${res.data.blog}"><i class="fas fa-rss"></i> Blog</a>
+              </div>
+          </div>
+  
+          <main>
+              <div class="container">
+  
+                  <h1 class="col">${res.data.bio}</h1>
+  
+                  <div class="card-deck">
+                      <div class="card col col-sm-6">
+                          <h2>Followers</h2>
+                          <h3>${res.data.followers}</h3>
+                      </div>
+                      <div class="card col col-sm-6">
+                          <h2>Following</h2>
+                          <h3>${res.data.following}</h3>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="card-deck">
+                      <div class="card col col-sm-6">
+                          <h2>GitHub stars</h2>
+                          <h3>${stars.data.length}</h3>
+                      </div>
+                      <div class="card col col-sm-6">
+                          <h2>Public Repos</h2>
+                          <h3>${res.data.public_repos}</h3>
+                      </div>
+                  </div>
+                  <br>
+              </div>
+          </main>
+      </div>
+  </body>
+  
+</html>`
 }
 
 module.exports = generateHTML;
