@@ -10,7 +10,7 @@ convertFactory = require('electron-html-to');
 const questions = [{
         type: "rawlist",
         name: "color",
-        message: "what is your favorite color?",
+        message: "Which color template do you want?",
         choices: [
             "green",
             "blue",

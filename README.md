@@ -6,7 +6,7 @@ Profile generator that prompts user to input GitHub  username and pick a color t
     1. Clone repository
     2. Run your terminal/CMD with the path set for cloned repository folder
     3. In the terminal, run the command: npm install (a new folder should appear in the repo named node_modules)
-    4. Next, run the command: node index.js
+    4. Run the command: node index.js
     5. A prompt should appear asking to choose a color template from the list
     6. Another prompt will appear asking for your GitHub username
     7. Wait a few seconds and when its done you will see the PDF in the repo folder
