@@ -8,7 +8,7 @@ const readFileAsync = util.promisify(fs.readFile);
 convertFactory = require('electron-html-to');
 
 const questions = [{
-        type: "rawlist",
+        type: "list",
         name: "color",
         message: "Which color template do you want?",
         choices: [

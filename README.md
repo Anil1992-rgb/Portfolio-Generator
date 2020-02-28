@@ -44,3 +44,7 @@ ________________________________________________________________________________
 - Electron version 1.8.8 & Electron-html-to version 2.6.0 - (used for PDF conversion)
 
 - Pre-made node.js modules
+
+
+
+![Example profile](./example.png)
